@@ -5,9 +5,16 @@ VisualStudioVersion = 17.8.34330.188
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Singleton_Pattern", "Singleton_Pattern\Singleton_Pattern.csproj", "{BD3CCA9C-9F56-4D60-8F03-915EBB69BBE2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PayrollSystem", "PayrollSystem\PayrollSystem.csproj", "{956E906B-553F-4EB0-B724-C2C3EB20CA7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PayrollSystem", "PayrollSystem\PayrollSystem.csproj", "{956E906B-553F-4EB0-B724-C2C3EB20CA7B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter_Pattern", "Adapter_Pattern\Adapter_Pattern.csproj", "{01A79951-C2EF-491A-8DD4-F0860A93570B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adapter_Pattern", "Adapter_Pattern\Adapter_Pattern.csproj", "{01A79951-C2EF-491A-8DD4-F0860A93570B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy_Pattern", "Strategy_Pattern\Strategy_Pattern.csproj", "{72A2AF60-2E78-48BC-B918-BB8821FC6D37}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{582EC0B0-6065-4BDF-989C-1B178B4611F8}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +34,10 @@ Global
 		{01A79951-C2EF-491A-8DD4-F0860A93570B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01A79951-C2EF-491A-8DD4-F0860A93570B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01A79951-C2EF-491A-8DD4-F0860A93570B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72A2AF60-2E78-48BC-B918-BB8821FC6D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72A2AF60-2E78-48BC-B918-BB8821FC6D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72A2AF60-2E78-48BC-B918-BB8821FC6D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72A2AF60-2E78-48BC-B918-BB8821FC6D37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
