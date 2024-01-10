@@ -4,6 +4,7 @@ using Strategy_Pattern.Core;
 using Strategy_Pattern.Core.DiscountStrategies.Interfaces;
 using Strategy_Pattern.Core.DiscountStrategies.Models;
 using Strategy_Pattern.Core.Enums;
+using Strategy_Pattern.Helper;
 
 var customerDataReader = new CustomerDataReader();
 
@@ -11,8 +12,11 @@ var customers = customerDataReader.GetCustomers();
 
 while (true)
 {
-    Console.WriteLine($"Customr List :[1] Ahmed Yousef , [2] Omer Yousef");
+    Console.WriteLine("Customer List :");
+    foreach (var customer in customers)
+        Console.WriteLine($"\t{customer.Id}. {customer.Name} ({customer.Category})");
 
+    Console.WriteLine();
     Console.Write("Enter Customer Id : ");
     var customerId = int.Parse( Console.ReadLine());
 
@@ -22,32 +26,44 @@ while (true)
     Console.Write("Enter the Unit Price : ");
     var unitPrice = double.Parse(Console.ReadLine());
 
-    var customer = customers.FirstOrDefault(c => c.Id == customerId);
+    var slectedCustomer = customers.FirstOrDefault(c => c.Id == customerId);
 
-    if( customer is null )
+    if(slectedCustomer is null )
         Console.WriteLine($"No Customer with this Id : {customerId} found !");
 
     else
     {
-        ICustomerDiscountStrategy customerDiscountStrategy = null;
 
-        if (customer.Category == CustomerCategory.Gold)
-            customerDiscountStrategy = new GoldCustomerDiscountStrategy();
+		#region Before Use  Simple Factory Pattern
+		//ICustomerDiscountStrategy customerDiscountStrategy = null;
 
-        else if (customer.Category == CustomerCategory.Silver)
-            customerDiscountStrategy = new SilverCustomerDiscountStrategy();
+		//      if (customer.Category == CustomerCategory.Gold)
+		//          customerDiscountStrategy = new GoldCustomerDiscountStrategy();
 
-        var invoiceManger = new InvoiceManager();
+		//      else if (customer.Category == CustomerCategory.Silver)
+		//          customerDiscountStrategy = new SilverCustomerDiscountStrategy();
 
-        invoiceManger.SetDiscountStrategy(customerDiscountStrategy);
+		#endregion
 
-        var invoice = invoiceManger.CreateInvoice(customer, quentity, unitPrice);
+
+		
+		var invoiceManger = new InvoiceManager();
+
+		#region After Use  Simple Factory Pattern
+
+		ICustomerDiscountStrategy customerDiscountStrategy = new CustomerDiscountStrategyFactory().CreateCustomerDiscountStrategy(slectedCustomer.Category);
+		
+        #endregion
+
+		invoiceManger.SetDiscountStrategy(customerDiscountStrategy);
+
+        var invoice = invoiceManger.CreateInvoice(slectedCustomer, quentity, unitPrice);
 
 
 
         Console.ForegroundColor = ConsoleColor.Green;
 
-        Console.WriteLine($"Invoice Created for Customer :{customer.Name} , with Total Price :{invoice.NetPrice}");
+        Console.WriteLine($"Invoice Created for Customer :{slectedCustomer.Name} , with Total Price :{invoice.NetPrice}");
 
         Console.ForegroundColor = ConsoleColor.White;
 

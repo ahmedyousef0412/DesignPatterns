@@ -14,8 +14,9 @@ namespace Strategy_Pattern.Core
         {
             return new[]
             {
-                new Customer(){Id = 1, Name = "Ahmed Yousef",Category= CustomerCategory.Silver},
-                new Customer(){Id = 2 , Name = "Omer Yousef",Category= CustomerCategory.Gold},
+                new Customer(){Id = 1, Name = "Ahmed Yousef",Category= CustomerCategory.New},
+                new Customer(){Id = 2 , Name = "Omer Yousef",Category= CustomerCategory.Silver},
+                new Customer(){Id = 3 , Name = "Yousef Ahmed",Category= CustomerCategory.Gold},
             };
         }
     }
